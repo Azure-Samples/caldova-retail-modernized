@@ -13,11 +13,11 @@ image on the existing Azure Container App.
 
 | Item | Contract |
 | --- | --- |
-| Solution | `src/app-modernization/caldova-retail-web-app/eShopLiteFx.sln` |
-| Web project | `src/app-modernization/caldova-retail-web-app/src/eShopLite.StoreFx/eShopLite.StoreFx.csproj` |
+| Solution | `eShopLiteFx.sln` (repository root) |
+| Web project | `src/eShopLite.StoreFx/eShopLite.StoreFx.csproj` |
 | Required Lab 6 target framework | .NET 10 (`net10.0`) |
 | Entry assembly | `eShopLite.StoreFx.dll` |
-| Docker build context | `src/app-modernization/caldova-retail-web-app` |
+| Docker build context | `.` (repository root) |
 | Dockerfile | `src/eShopLite.StoreFx/Dockerfile`, relative to the build context |
 | Container port | `8080` |
 
