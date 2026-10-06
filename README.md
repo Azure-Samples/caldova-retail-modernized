@@ -12,8 +12,6 @@ Then run it with the .NET 10 SDK:
 dotnet run --project src/eShopLite.StoreFx
 ```
 
-The app listens on http://localhost:54775.
-
 ## Azure configuration (optional)
 
 Each Azure integration turns on only when its setting is present; with none set, the app runs exactly as it does locally. Set them as environment variables (or Key Vault secrets, using `--` instead of `__`). In Azure, the app signs in with its managed identity; in Development it uses your Azure CLI / Visual Studio sign-in.
