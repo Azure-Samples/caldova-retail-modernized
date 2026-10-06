@@ -1,0 +1,50 @@
+@page "/Home/Product/{Id:int}"
+@inject IStoreService StoreService
+@inject NavigationManager Navigation
+
+@if (_product != null)
+{
+    <PageTitle>@_product.Name - eShopLite</PageTitle>
+
+    <p><a href="Home/Products" class="back-link"><Icon Name="arrow-left" Size="16" /> Back to products</a></p>
+
+    <StatusMessage />
+
+    <div class="product-detail row g-4 g-lg-5 align-items-center">
+        <div class="col-md-5">
+            <div class="product-detail-media">
+                <img src="Images/@_product.ImageUrl" alt="@_product.Name" class="img-fluid" />
+            </div>
+        </div>
+        <div class="col-md-7">
+            <span class="product-id">Item #@_product.Id</span>
+            <h1 id="title" class="mt-1">@_product.Name</h1>
+            <p class="detail-price">USD @_product.Price.ToString("N2")</p>
+            <p class="lead text-body-secondary">@_product.Description</p>
+            <div class="detail-actions">
+                <FormMappingScope Name="product-detail">
+                    <AddToCartForm ProductId="_product.Id" ProductName="@_product.Name" ReturnUrl="@_returnUrl" />
+                </FormMappingScope>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+
+    private Product _product;
+    private string _returnUrl;
+
+    protected override void OnInitialized()
+    {
+        _product = StoreService.GetProduct(Id);
+        if (_product == null)
+        {
+            Navigation.NotFound();
+            return;
+        }
+
+        _returnUrl = "/" + Navigation.ToBaseRelativePath(Navigation.Uri);
+    }
+}

@@ -1,0 +1,94 @@
+@page "/Cart/Checkout"
+@attribute [Authorize]
+@inject ICartService CartService
+@inject IOrderService OrderService
+@inject NavigationManager Navigation
+
+<PageTitle>Checkout - eShopLite</PageTitle>
+
+@if (_cart != null && !_cart.IsEmpty)
+{
+    <header class="page-header">
+        <div>
+            <h1 id="title">Checkout</h1>
+            <p class="page-subtitle">Signed in as <strong>@HttpContext.User.Identity?.Name</strong></p>
+        </div>
+    </header>
+
+    <div class="row g-4">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="table-responsive">
+                    <table class="table align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th class="text-center">Qty</th>
+                                <th class="text-end">Line total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in _cart.Items)
+                            {
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-3">
+                                            <img src="Images/@item.ImageUrl" alt="@item.Name" class="cart-thumb cart-thumb-sm" />
+                                            <span>@item.Name</span>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">@item.Quantity</td>
+                                    <td class="text-end">USD @item.LineTotal.ToString("N2")</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <aside class="card summary-card">
+                <div class="card-body">
+                    <h2 class="h5">Order total</h2>
+                    <p class="summary-amount">USD @_cart.Total.ToString("N2")</p>
+                    <form method="post" @formname="place-order" @onsubmit="PlaceOrder" class="d-grid gap-2">
+                        <AntiforgeryToken />
+                        <button type="submit" class="btn btn-success btn-lg">Place order</button>
+                        <a href="Cart" class="btn btn-outline-secondary">Back to cart</a>
+                    </form>
+                </div>
+            </aside>
+        </div>
+    </div>
+}
+
+@code {
+    [CascadingParameter]
+    private HttpContext HttpContext { get; set; }
+
+    private Cart _cart;
+
+    protected override void OnInitialized()
+    {
+        _cart = CartService.GetCart();
+        if (_cart.IsEmpty)
+        {
+            Navigation.NavigateTo("/Cart");
+        }
+    }
+
+    private void PlaceOrder()
+    {
+        var cart = CartService.GetCart();
+        if (cart.IsEmpty)
+        {
+            Navigation.NavigateTo("/Cart");
+            return;
+        }
+
+        var order = OrderService.PlaceOrder(cart, HttpContext.User.Identity?.Name);
+        CartService.Clear();
+
+        Navigation.NavigateTo($"/Cart/Confirmation/{order.Id}");
+    }
+}

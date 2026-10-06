@@ -1,0 +1,48 @@
+@page "/Home/Stores"
+@inject IStoreService StoreService
+
+<PageTitle>Stores - eShopLite</PageTitle>
+
+<header class="page-header">
+    <div>
+        <h1 id="title">Stores</h1>
+        <p class="page-subtitle">This component demonstrates showing stores data</p>
+    </div>
+</header>
+
+@if (_stores == null)
+{
+    <div class="text-center p-3">
+        <span class="spinner-border text-primary" aria-hidden="true"></span>
+        <span class="visually-hidden">Loading store information...</span>
+    </div>
+}
+else
+{
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+        @foreach (var store in _stores)
+        {
+            <div class="col">
+                <article class="card store-card h-100">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <span class="feature-icon feature-icon-sm"><Icon Name="store" /></span>
+                            <h2 class="h5 mb-0">@store.Name</h2>
+                        </div>
+                        <p class="store-meta mb-1"><Icon Name="pin" Size="16" /> @store.City, @store.State</p>
+                        <p class="store-meta mb-0"><Icon Name="clock" Size="16" /> @store.Hours</p>
+                    </div>
+                </article>
+            </div>
+        }
+    </div>
+}
+
+@code {
+    private List<StoreInfo> _stores;
+
+    protected override void OnInitialized()
+    {
+        _stores = StoreService.GetStores().ToList();
+    }
+}

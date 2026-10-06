@@ -1,0 +1,60 @@
+@page "/Home/Products"
+@inject IStoreService StoreService
+@inject NavigationManager Navigation
+
+<PageTitle>Products - eShopLite</PageTitle>
+
+<header class="page-header">
+    <div>
+        <h1 id="title">Products</h1>
+        <p class="page-subtitle">This component demonstrates showing products data</p>
+    </div>
+    <form method="get" action="Home/Products" class="search-bar" role="search">
+        <span class="search-icon"><Icon Name="search" Size="18" /></span>
+        <input type="search" name="q" value="@SearchTerm" class="form-control" placeholder="Search products" aria-label="Search products" />
+        <button type="submit" class="btn btn-primary">Search</button>
+        @if (!string.IsNullOrWhiteSpace(SearchTerm))
+        {
+            <a href="Home/Products" class="btn btn-outline-secondary">Clear</a>
+        }
+    </form>
+</header>
+
+<StatusMessage />
+
+@if (_products == null)
+{
+    <p><em>Loading...</em></p>
+}
+else if (_products.Count == 0)
+{
+    <div class="empty-state">
+        <Icon Name="search" Size="32" />
+        <p class="mb-0"><em>No products matched "@SearchTerm".</em></p>
+    </div>
+}
+else
+{
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+        @foreach (var product in _products)
+        {
+            <div class="col">
+                <ProductCard Product="product" ReturnUrl="@_returnUrl" />
+            </div>
+        }
+    </div>
+}
+
+@code {
+    [SupplyParameterFromQuery(Name = "q")]
+    private string SearchTerm { get; set; }
+
+    private List<Product> _products;
+    private string _returnUrl;
+
+    protected override void OnInitialized()
+    {
+        _returnUrl = "/" + Navigation.ToBaseRelativePath(Navigation.Uri);
+        _products = StoreService.SearchProducts(SearchTerm).ToList();
+    }
+}

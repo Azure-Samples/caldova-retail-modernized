@@ -1,0 +1,21 @@
+@inject ISessionStore SessionStore
+
+<NavLink href="Cart" Match="NavLinkMatch.All" class="nav-link cart-link d-inline-flex align-items-center" aria-label="@($"Cart ({_itemCount} items)")">
+    <Icon Name="cart" Size="20" />
+    <span class="ms-1">Cart</span>
+    @if (_itemCount > 0)
+    {
+        <span class="badge rounded-pill cart-count ms-1">@_itemCount</span>
+    }
+</NavLink>
+
+@code {
+    private int _itemCount;
+
+    protected override void OnInitialized()
+    {
+        // Reads the cart without creating one, so browsing never starts a session on its own.
+        var cart = SessionStore.Get<Cart>(SessionCartService.SessionKey);
+        _itemCount = cart?.ItemCount ?? 0;
+    }
+}

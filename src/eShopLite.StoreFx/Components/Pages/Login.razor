@@ -1,0 +1,93 @@
+@page "/Account/Login"
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authentication.Cookies
+@inject IAuthService AuthService
+@inject NavigationManager Navigation
+
+<PageTitle>Log in - eShopLite</PageTitle>
+
+<div class="auth-wrapper">
+    <div class="card auth-card">
+        <div class="card-body">
+            <span class="feature-icon mb-3"><Icon Name="lock" /></span>
+            <h1 id="title" class="h3">Log in</h1>
+            <p class="text-body-secondary">Sign in to check out and see your order history.</p>
+
+            <EditForm Model="Input" method="post" OnValidSubmit="LogInAsync" FormName="login" class="form">
+                <DataAnnotationsValidator />
+
+                @if (!string.IsNullOrEmpty(_errorMessage))
+                {
+                    <div class="alert alert-danger d-flex align-items-center gap-2" role="alert">
+                        <Icon Name="alert" Size="18" /> <span>@_errorMessage</span>
+                    </div>
+                }
+
+                <div class="mb-3">
+                    <label for="Input.UserName" class="form-label">User name</label>
+                    <InputText @bind-Value="Input.UserName" id="Input.UserName" class="form-control" autocomplete="username" autofocus required />
+                    <ValidationMessage For="() => Input.UserName" class="text-danger" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="Input.Password" class="form-label">Password</label>
+                    <InputText type="password" @bind-Value="Input.Password" id="Input.Password" class="form-control" autocomplete="current-password" required />
+                    <ValidationMessage For="() => Input.Password" class="text-danger" />
+                </div>
+
+                <div class="form-check mb-4">
+                    <InputCheckbox @bind-Value="Input.RememberMe" id="Input.RememberMe" class="form-check-input" />
+                    <label for="Input.RememberMe" class="form-check-label">Remember me</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg w-100">Log in</button>
+            </EditForm>
+        </div>
+    </div>
+</div>
+
+@code {
+    [CascadingParameter]
+    private HttpContext HttpContext { get; set; }
+
+    [SupplyParameterFromForm]
+    private LoginViewModel Input { get; set; }
+
+    [SupplyParameterFromQuery(Name = "ReturnUrl")]
+    private string ReturnUrl { get; set; }
+
+    private string _errorMessage;
+
+    protected override void OnInitialized()
+    {
+        Input ??= new LoginViewModel();
+    }
+
+    private async Task LogInAsync()
+    {
+        var user = AuthService.ValidateUser(Input.UserName, Input.Password);
+        if (user == null)
+        {
+            // Never echo a password back into the page, as MVC's PasswordFor never did.
+            Input.Password = string.Empty;
+            _errorMessage = "Invalid user name or password.";
+            return;
+        }
+
+        // The legacy comma-separated Roles column becomes one role claim per entry, so
+        // [Authorize(Roles = "...")] and User.IsInRole keep working.
+        var claims = new List<Claim> { new Claim(ClaimTypes.Name, user.UserName) };
+        claims.AddRange((user.Roles ?? string.Empty)
+            .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+            .Select(role => new Claim(ClaimTypes.Role, role)));
+
+        var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+        await HttpContext.SignInAsync(
+            CookieAuthenticationDefaults.AuthenticationScheme,
+            new ClaimsPrincipal(identity),
+            new AuthenticationProperties { IsPersistent = Input.RememberMe });
+
+        Navigation.NavigateTo(LocalUrl.OrHome(ReturnUrl));
+    }
+}

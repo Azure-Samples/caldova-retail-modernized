@@ -1,0 +1,1252 @@
+{
+  "packageGovernance": {
+    "totalDistinctPackages": 22,
+    "totalVersionDriftInstances": 0,
+    "targetFramework": "net10.0",
+    "packages": [
+      {
+        "name": "Autofac",
+        "totalProjectCount": 1,
+        "distinctVersionCount": 1,
+        "recommendedVersion": "8.3.0",
+        "isCompatible": true,
+        "description": "",
+        "versions": [
+          {
+            "version": "8.3.0",
+            "projects": [
+              "eShopLite.StoreFx"
+            ],
+            "isRecommended": true
+          }
+        ]
+      },
+      {
+        "name": "Autofac.Mvc5",
+        "totalProjectCount": 1,
+        "distinctVersionCount": 1,
+        "recommendedVersion": "6.1.0",
+        "isCompatible": false,
+        "description": "NuGet package is incompatible",
+        "versions": [
+          {
+            "version": "6.1.0",
+            "projects": [
+              "eShopLite.StoreFx"
+            ],
+            "isRecommended": true
+          }
+        ]
+      },
+      {
+        "name": "bootstrap",
+        "totalProjectCount": 1,
+        "distinctVersionCount": 1,
+        "recommendedVersion": "5.3.7",
+        "isCompatible": true,
+        "description": "",
+        "versions": [
+          {
+            "version": "5.3.7",
+            "projects": [
+              "eShopLite.StoreFx"
+            ],
+            "isRecommended": true
+          }
+        ]
+      },
+      {
+        "name": "EntityFramework",
+        "totalProjectCount": 1,
+        "distinctVersionCount": 1,
+        "recommendedVersion": "6.5.2",
+        "isCompatible": true,
+        "description": "NuGet package upgrade is recommended",
+        "versions": [
+          {
+            "version": "6.5.1",
+            "projects": [
+              "eShopLite.StoreFx"
+            ],
+            "isRecommended": false
+          }
+        ],
+        "upgrade": {
+          "newVersion": "6.5.2"
+        }
+      },
+      {
+        "name": "jQuery",
+        "totalProjectCount": 1,
+        "distinctVersionCount": 1,
+        "recommendedVersion": "3.7.1",
+        "isCompatible": true,
+        "description": "",
+        "versions": [
+          {
+            "version": "3.7.1",
+            "projects": [
+              "eShopLite.StoreFx"
+            ],
+            "isRecommended": true
+          }
+        ]
+      },
+      {
+        "name": "jQuery.Validation",
+        "totalProjectCount": 1,
+        "distinctVersionCount": 1,
+        "recommendedVersion": "1.21.0",
+        "isCompatible": true,
+        "description": "",
+        "versions": [
+          {
+            "version": "1.21.0",
+            "projects": [
+              "eShopLite.StoreFx"
+            ],
+            "isRecommended": true
+          }
+        ]
+      },
+      {
+        "name": "Microsoft.AspNet.Mvc",
+        "totalProjectCount": 1,
+        "distinctVersionCount": 1,
+        "recommendedVersion": "5.3.0",
+        "isCompatible": true,
+        "description": "NuGet package functionality is included with framework reference",
+        "versions": [
+          {
+            "version": "5.3.0",
+            "projects": [
+              "eShopLite.StoreFx"
+            ],
+            "isRecommended": true
+          }
+        ]
+      },
+      {
+        "name": "Microsoft.AspNet.Razor",
+        "totalProjectCount": 1,
+        "distinctVersionCount": 1,
+        "recommendedVersion": "3.3.0",
+        "isCompatible": true,
+        "description": "NuGet package functionality is included with framework reference",
+        "versions": [
+          {
+            "version": "3.3.0",
+            "projects": [
+              "eShopLite.StoreFx"
+            ],
+            "isRecommended": true
+          }
+        ]
+      },
+      {
+        "name": "Microsoft.AspNet.WebPages",
+        "totalProjectCount": 1,
+        "distinctVersionCount": 1,
+        "recommendedVersion": "3.3.0",
+        "isCompatible": true,
+        "description": "NuGet package functionality is included with framework reference",
+        "versions": [
+          {
+            "version": "3.3.0",
+            "projects": [
+              "eShopLite.StoreFx"
+            ],
+            "isRecommended": true
+          }
+        ]
+      },
+      {
+        "name": "Microsoft.Bcl.AsyncInterfaces",
+        "totalProjectCount": 1,
+        "distinctVersionCount": 1,
+        "recommendedVersion": "10.0.12",
+        "isCompatible": true,
+        "description": "NuGet package upgrade is recommended",
+        "versions": [
+          {
+            "version": "9.0.7",
+            "projects": [
+              "eShopLite.StoreFx"
+            ],
+            "isRecommended": false
+          }
+        ],
+        "upgrade": {
+          "newVersion": "10.0.12"
+        }
+      },
+      {
+        "name": "Microsoft.CodeDom.Providers.DotNetCompilerPlatform",
+        "totalProjectCount": 1,
+        "distinctVersionCount": 1,
+        "recommendedVersion": "4.1.0",
+        "isCompatible": true,
+        "description": "NuGet package functionality is included with framework reference",
+        "versions": [
+          {
+            "version": "4.1.0",
+            "projects": [
+              "eShopLite.StoreFx"
+            ],
+            "isRecommended": true
+          }
+        ]
+      },
+      {
+        "name": "Microsoft.jQuery.Unobtrusive.Validation",
+        "totalProjectCount": 1,
+        "distinctVersionCount": 1,
+        "recommendedVersion": "4.0.0",
+        "isCompatible": true,
+        "description": "",
+        "versions": [
+          {
+            "version": "4.0.0",
+            "projects": [
+              "eShopLite.StoreFx"
+            ],
+            "isRecommended": true
+          }
+        ]
+      },
+      {
+        "name": "Microsoft.Web.Infrastructure",
+        "totalProjectCount": 1,
+        "distinctVersionCount": 1,
+        "recommendedVersion": "2.0.0",
+        "isCompatible": true,
+        "description": "NuGet package functionality is included with framework reference",
+        "versions": [
+          {
+            "version": "2.0.0",
+            "projects": [
+              "eShopLite.StoreFx"
+            ],
+            "isRecommended": true
+          }
+        ]
+      },
+      {
+        "name": "Modernizr",
+        "totalProjectCount": 1,
+        "distinctVersionCount": 1,
+        "recommendedVersion": "2.8.3",
+        "isCompatible": true,
+        "description": "",
+        "versions": [
+          {
+            "version": "2.8.3",
+            "projects": [
+              "eShopLite.StoreFx"
+            ],
+            "isRecommended": true
+          }
+        ]
+      },
+      {
+        "name": "Newtonsoft.Json",
+        "totalProjectCount": 1,
+        "distinctVersionCount": 1,
+        "recommendedVersion": "13.0.4",
+        "isCompatible": true,
+        "description": "NuGet package upgrade is recommended",
+        "versions": [
+          {
+            "version": "13.0.3",
+            "projects": [
+              "eShopLite.StoreFx"
+            ],
+            "isRecommended": false
+          }
+        ],
+        "upgrade": {
+          "newVersion": "13.0.4"
+        }
+      },
+      {
+        "name": "System.Buffers",
+        "totalProjectCount": 1,
+        "distinctVersionCount": 1,
+        "recommendedVersion": "4.6.1",
+        "isCompatible": true,
+        "description": "NuGet package functionality is included with framework reference",
+        "versions": [
+          {
+            "version": "4.6.1",
+            "projects": [
+              "eShopLite.StoreFx"
+            ],
+            "isRecommended": true
+          }
+        ]
+      },
+      {
+        "name": "System.Diagnostics.DiagnosticSource",
+        "totalProjectCount": 1,
+        "distinctVersionCount": 1,
+        "recommendedVersion": "10.0.12",
+        "isCompatible": true,
+        "description": "NuGet package upgrade is recommended",
+        "versions": [
+          {
+            "version": "9.0.7",
+            "projects": [
+              "eShopLite.StoreFx"
+            ],
+            "isRecommended": false
+          }
+        ],
+        "upgrade": {
+          "newVersion": "10.0.12"
+        }
+      },
+      {
+        "name": "System.Memory",
+        "totalProjectCount": 1,
+        "distinctVersionCount": 1,
+        "recommendedVersion": "4.6.3",
+        "isCompatible": true,
+        "description": "NuGet package functionality is included with framework reference",
+        "versions": [
+          {
+            "version": "4.6.3",
+            "projects": [
+              "eShopLite.StoreFx"
+            ],
+            "isRecommended": true
+          }
+        ]
+      },
+      {
+        "name": "System.Numerics.Vectors",
+        "totalProjectCount": 1,
+        "distinctVersionCount": 1,
+        "recommendedVersion": "4.6.1",
+        "isCompatible": true,
+        "description": "NuGet package functionality is included with framework reference",
+        "versions": [
+          {
+            "version": "4.6.1",
+            "projects": [
+              "eShopLite.StoreFx"
+            ],
+            "isRecommended": true
+          }
+        ]
+      },
+      {
+        "name": "System.Runtime.CompilerServices.Unsafe",
+        "totalProjectCount": 1,
+        "distinctVersionCount": 1,
+        "recommendedVersion": "6.1.2",
+        "isCompatible": true,
+        "description": "",
+        "versions": [
+          {
+            "version": "6.1.2",
+            "projects": [
+              "eShopLite.StoreFx"
+            ],
+            "isRecommended": true
+          }
+        ]
+      },
+      {
+        "name": "System.Threading.Tasks.Extensions",
+        "totalProjectCount": 1,
+        "distinctVersionCount": 1,
+        "recommendedVersion": "4.6.3",
+        "isCompatible": true,
+        "description": "NuGet package functionality is included with framework reference",
+        "versions": [
+          {
+            "version": "4.6.3",
+            "projects": [
+              "eShopLite.StoreFx"
+            ],
+            "isRecommended": true
+          }
+        ]
+      },
+      {
+        "name": "WebGrease",
+        "totalProjectCount": 1,
+        "distinctVersionCount": 1,
+        "recommendedVersion": "1.6.0",
+        "isCompatible": true,
+        "description": "",
+        "versions": [
+          {
+            "version": "1.6.0",
+            "projects": [
+              "eShopLite.StoreFx"
+            ],
+            "isRecommended": true
+          }
+        ]
+      }
+    ]
+  },
+  "projects": [
+    {
+      "name": "eShopLite.StoreFx",
+      "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj",
+      "isSdk": false,
+      "currentFrameworks": [
+        "net48"
+      ],
+      "targetFramework": "net10.0",
+      "dependencies": {
+        "packages": [
+          {
+            "name": "Autofac",
+            "version": "8.3.0",
+            "isTransitive": false,
+            "isGlobal": false,
+            "isImplicit": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\packages.config"
+              }
+            ],
+            "description": "",
+            "compatibility": "valid",
+            "recommendedVersion": ""
+          },
+          {
+            "name": "Autofac.Mvc5",
+            "version": "6.1.0",
+            "isTransitive": false,
+            "isGlobal": false,
+            "isImplicit": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\packages.config"
+              }
+            ],
+            "description": "NuGet package is incompatible",
+            "compatibility": "newVersionNeeded",
+            "recommendedVersion": ""
+          },
+          {
+            "name": "bootstrap",
+            "version": "5.3.7",
+            "isTransitive": false,
+            "isGlobal": false,
+            "isImplicit": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\packages.config"
+              }
+            ],
+            "description": "",
+            "compatibility": "valid",
+            "recommendedVersion": ""
+          },
+          {
+            "name": "EntityFramework",
+            "version": "6.5.1",
+            "isTransitive": false,
+            "isGlobal": false,
+            "isImplicit": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\packages.config"
+              }
+            ],
+            "description": "NuGet package upgrade is recommended",
+            "compatibility": "valid",
+            "recommendedVersion": "6.5.2",
+            "upgrade": {
+              "newVersion": "6.5.2"
+            }
+          },
+          {
+            "name": "jQuery",
+            "version": "3.7.1",
+            "isTransitive": false,
+            "isGlobal": false,
+            "isImplicit": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\packages.config"
+              }
+            ],
+            "description": "",
+            "compatibility": "valid",
+            "recommendedVersion": ""
+          },
+          {
+            "name": "jQuery.Validation",
+            "version": "1.21.0",
+            "isTransitive": false,
+            "isGlobal": false,
+            "isImplicit": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\packages.config"
+              }
+            ],
+            "description": "",
+            "compatibility": "valid",
+            "recommendedVersion": ""
+          },
+          {
+            "name": "Microsoft.AspNet.Mvc",
+            "version": "5.3.0",
+            "isTransitive": false,
+            "isGlobal": false,
+            "isImplicit": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\packages.config"
+              }
+            ],
+            "description": "NuGet package functionality is included with framework reference",
+            "compatibility": "valid",
+            "recommendedVersion": ""
+          },
+          {
+            "name": "Microsoft.AspNet.Razor",
+            "version": "3.3.0",
+            "isTransitive": false,
+            "isGlobal": false,
+            "isImplicit": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\packages.config"
+              }
+            ],
+            "description": "NuGet package functionality is included with framework reference",
+            "compatibility": "valid",
+            "recommendedVersion": ""
+          },
+          {
+            "name": "Microsoft.AspNet.WebPages",
+            "version": "3.3.0",
+            "isTransitive": false,
+            "isGlobal": false,
+            "isImplicit": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\packages.config"
+              }
+            ],
+            "description": "NuGet package functionality is included with framework reference",
+            "compatibility": "valid",
+            "recommendedVersion": ""
+          },
+          {
+            "name": "Microsoft.Bcl.AsyncInterfaces",
+            "version": "9.0.7",
+            "isTransitive": false,
+            "isGlobal": false,
+            "isImplicit": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\packages.config"
+              }
+            ],
+            "description": "NuGet package upgrade is recommended",
+            "compatibility": "valid",
+            "recommendedVersion": "10.0.12",
+            "upgrade": {
+              "newVersion": "10.0.12"
+            }
+          },
+          {
+            "name": "Microsoft.CodeDom.Providers.DotNetCompilerPlatform",
+            "version": "4.1.0",
+            "isTransitive": false,
+            "isGlobal": false,
+            "isImplicit": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\packages.config"
+              }
+            ],
+            "description": "NuGet package functionality is included with framework reference",
+            "compatibility": "valid",
+            "recommendedVersion": ""
+          },
+          {
+            "name": "Microsoft.jQuery.Unobtrusive.Validation",
+            "version": "4.0.0",
+            "isTransitive": false,
+            "isGlobal": false,
+            "isImplicit": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\packages.config"
+              }
+            ],
+            "description": "",
+            "compatibility": "valid",
+            "recommendedVersion": ""
+          },
+          {
+            "name": "Microsoft.Web.Infrastructure",
+            "version": "2.0.0",
+            "isTransitive": false,
+            "isGlobal": false,
+            "isImplicit": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\packages.config"
+              }
+            ],
+            "description": "NuGet package functionality is included with framework reference",
+            "compatibility": "valid",
+            "recommendedVersion": ""
+          },
+          {
+            "name": "Modernizr",
+            "version": "2.8.3",
+            "isTransitive": false,
+            "isGlobal": false,
+            "isImplicit": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\packages.config"
+              }
+            ],
+            "description": "",
+            "compatibility": "valid",
+            "recommendedVersion": ""
+          },
+          {
+            "name": "Newtonsoft.Json",
+            "version": "13.0.3",
+            "isTransitive": false,
+            "isGlobal": false,
+            "isImplicit": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\packages.config"
+              }
+            ],
+            "description": "NuGet package upgrade is recommended",
+            "compatibility": "valid",
+            "recommendedVersion": "13.0.4",
+            "upgrade": {
+              "newVersion": "13.0.4"
+            }
+          },
+          {
+            "name": "System.Buffers",
+            "version": "4.6.1",
+            "isTransitive": false,
+            "isGlobal": false,
+            "isImplicit": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\packages.config"
+              }
+            ],
+            "description": "NuGet package functionality is included with framework reference",
+            "compatibility": "valid",
+            "recommendedVersion": ""
+          },
+          {
+            "name": "System.Diagnostics.DiagnosticSource",
+            "version": "9.0.7",
+            "isTransitive": false,
+            "isGlobal": false,
+            "isImplicit": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\packages.config"
+              }
+            ],
+            "description": "NuGet package upgrade is recommended",
+            "compatibility": "valid",
+            "recommendedVersion": "10.0.12",
+            "upgrade": {
+              "newVersion": "10.0.12"
+            }
+          },
+          {
+            "name": "System.Memory",
+            "version": "4.6.3",
+            "isTransitive": false,
+            "isGlobal": false,
+            "isImplicit": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\packages.config"
+              }
+            ],
+            "description": "NuGet package functionality is included with framework reference",
+            "compatibility": "valid",
+            "recommendedVersion": ""
+          },
+          {
+            "name": "System.Numerics.Vectors",
+            "version": "4.6.1",
+            "isTransitive": false,
+            "isGlobal": false,
+            "isImplicit": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\packages.config"
+              }
+            ],
+            "description": "NuGet package functionality is included with framework reference",
+            "compatibility": "valid",
+            "recommendedVersion": ""
+          },
+          {
+            "name": "System.Runtime.CompilerServices.Unsafe",
+            "version": "6.1.2",
+            "isTransitive": false,
+            "isGlobal": false,
+            "isImplicit": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\packages.config"
+              }
+            ],
+            "description": "",
+            "compatibility": "valid",
+            "recommendedVersion": ""
+          },
+          {
+            "name": "System.Threading.Tasks.Extensions",
+            "version": "4.6.3",
+            "isTransitive": false,
+            "isGlobal": false,
+            "isImplicit": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\packages.config"
+              }
+            ],
+            "description": "NuGet package functionality is included with framework reference",
+            "compatibility": "valid",
+            "recommendedVersion": ""
+          },
+          {
+            "name": "WebGrease",
+            "version": "1.6.0",
+            "isTransitive": false,
+            "isGlobal": false,
+            "isImplicit": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\packages.config"
+              }
+            ],
+            "description": "",
+            "compatibility": "valid",
+            "recommendedVersion": ""
+          }
+        ],
+        "assemblies": [
+          {
+            "name": "Autofac",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "physicalPath": "packages\\Autofac.8.3.0\\lib\\netstandard2.0\\Autofac.dll",
+            "compatibility": "valid"
+          },
+          {
+            "name": "Autofac.Integration.Mvc",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "physicalPath": "packages\\Autofac.Mvc5.6.1.0\\lib\\net472\\Autofac.Integration.Mvc.dll",
+            "compatibility": "valid"
+          },
+          {
+            "name": "EntityFramework",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "physicalPath": "packages\\EntityFramework.6.5.1\\lib\\net45\\EntityFramework.dll",
+            "compatibility": "valid"
+          },
+          {
+            "name": "EntityFramework.SqlServer",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "physicalPath": "packages\\EntityFramework.6.5.1\\lib\\net45\\EntityFramework.SqlServer.dll",
+            "compatibility": "valid"
+          },
+          {
+            "name": "Microsoft.Bcl.AsyncInterfaces",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "physicalPath": "packages\\Microsoft.Bcl.AsyncInterfaces.9.0.7\\lib\\net462\\Microsoft.Bcl.AsyncInterfaces.dll",
+            "compatibility": "valid"
+          },
+          {
+            "name": "Microsoft.CodeDom.Providers.DotNetCompilerPlatform",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "physicalPath": "packages\\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\\lib\\net472\\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll",
+            "compatibility": "valid"
+          },
+          {
+            "name": "Microsoft.CSharp",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "compatibility": "valid"
+          },
+          {
+            "name": "System",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Buffers",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "physicalPath": "packages\\System.Buffers.4.6.1\\lib\\net462\\System.Buffers.dll",
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Data",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Diagnostics.DiagnosticSource",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "physicalPath": "packages\\System.Diagnostics.DiagnosticSource.9.0.7\\lib\\net462\\System.Diagnostics.DiagnosticSource.dll",
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Drawing",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Memory",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "physicalPath": "packages\\System.Memory.4.6.3\\lib\\net462\\System.Memory.dll",
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Numerics",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Numerics.Vectors",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "physicalPath": "packages\\System.Numerics.Vectors.4.6.1\\lib\\net462\\System.Numerics.Vectors.dll",
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Runtime.CompilerServices.Unsafe",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "physicalPath": "packages\\System.Runtime.CompilerServices.Unsafe.6.1.2\\lib\\net462\\System.Runtime.CompilerServices.Unsafe.dll",
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Threading.Tasks.Extensions",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "physicalPath": "packages\\System.Threading.Tasks.Extensions.4.6.3\\lib\\net462\\System.Threading.Tasks.Extensions.dll",
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Web.DynamicData",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Web.Entity",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Web.ApplicationServices",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.ComponentModel.DataAnnotations",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Core",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Data.DataSetExtensions",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Web.Helpers",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "physicalPath": "packages\\Microsoft.AspNet.WebPages.3.3.0\\lib\\net45\\System.Web.Helpers.dll",
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Web.Mvc",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "physicalPath": "packages\\Microsoft.AspNet.Mvc.5.3.0\\lib\\net45\\System.Web.Mvc.dll",
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Web.Razor",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "physicalPath": "packages\\Microsoft.AspNet.Razor.3.3.0\\lib\\net45\\System.Web.Razor.dll",
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Web.WebPages",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "physicalPath": "packages\\Microsoft.AspNet.WebPages.3.3.0\\lib\\net45\\System.Web.WebPages.dll",
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Web.WebPages.Deployment",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "physicalPath": "packages\\Microsoft.AspNet.WebPages.3.3.0\\lib\\net45\\System.Web.WebPages.Deployment.dll",
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Web.WebPages.Razor",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "physicalPath": "packages\\Microsoft.AspNet.WebPages.3.3.0\\lib\\net45\\System.Web.WebPages.Razor.dll",
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Xml.Linq",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Web",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Web.Extensions",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Web.Abstractions",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Web.Routing",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Xml",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Configuration",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Web.Services",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.EnterpriseServices",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "compatibility": "valid"
+          },
+          {
+            "name": "Microsoft.Web.Infrastructure",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "physicalPath": "packages\\Microsoft.Web.Infrastructure.2.0.0\\lib\\net40\\Microsoft.Web.Infrastructure.dll",
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Net.Http",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "compatibility": "valid"
+          },
+          {
+            "name": "System.Net.Http.WebRequest",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "compatibility": "valid"
+          },
+          {
+            "name": "Newtonsoft.Json",
+            "version": "",
+            "isTransitive": false,
+            "definedIn": [
+              {
+                "path": "src\\eShopLite.StoreFx\\eShopLite.StoreFx.csproj"
+              }
+            ],
+            "physicalPath": "packages\\Newtonsoft.Json.13.0.3\\lib\\net45\\Newtonsoft.Json.dll",
+            "compatibility": "valid"
+          }
+        ],
+        "projectReferences": [],
+        "frameworkReferences": []
+      },
+      "imports": [
+        {
+          "path": "packages\\EntityFramework.6.5.1\\build\\EntityFramework.props",
+          "isLocal": true
+        },
+        {
+          "path": "packages\\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\\build\\net472\\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets",
+          "isLocal": true
+        },
+        {
+          "path": "packages\\EntityFramework.6.5.1\\build\\EntityFramework.targets",
+          "isLocal": true
+        }
+      ]
+    }
+  ]
+}

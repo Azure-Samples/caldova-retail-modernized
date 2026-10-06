@@ -1,0 +1,94 @@
+@page "/Order"
+@page "/Order/Index"
+@attribute [Authorize]
+@inject IOrderService OrderService
+
+<PageTitle>My Orders - eShopLite</PageTitle>
+
+<header class="page-header">
+    <div>
+        <h1 id="title">My Orders</h1>
+    </div>
+</header>
+
+@if (_summary != null)
+{
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <div class="stat-card">
+                <div class="stat-label">Orders placed</div>
+                <div class="stat-value">@_summary.OrderCount</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-card">
+                <div class="stat-label">Lifetime total</div>
+                <div class="stat-value">USD @_summary.LifetimeTotal.ToString("N2")</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-card">
+                <div class="stat-label">First order</div>
+                <div class="stat-value">@(_summary.FirstOrderUtc.HasValue ? _summary.FirstOrderUtc.Value.ToString("yyyy-MM-dd") : "\u2014")</div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (_orders == null || _orders.Count == 0)
+{
+    <div class="empty-state">
+        <Icon Name="receipt" Size="36" />
+        <p><em>You have not placed any orders yet.</em></p>
+        <a href="Home/Products" class="btn btn-primary">Browse products</a>
+    </div>
+}
+else
+{
+    <div class="card">
+        <div class="table-responsive">
+            <table class="table align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th>Order</th>
+                        <th>Placed (UTC)</th>
+                        <th class="text-center">Items</th>
+                        <th class="text-end">Total</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var order in _orders)
+                    {
+                        <tr>
+                            <td class="fw-semibold">#@order.Id</td>
+                            <td>@order.PlacedUtc.ToString("yyyy-MM-dd HH:mm")</td>
+                            <td class="text-center">@order.Lines.Sum(l => l.Quantity)</td>
+                            <td class="text-end">USD @order.Total.ToString("N2")</td>
+                            <td class="text-end">
+                                <a href="@($"Cart/Confirmation/{order.Id}")" class="btn btn-sm btn-outline-secondary">View receipt</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+
+@code {
+    [CascadingParameter]
+    private HttpContext HttpContext { get; set; }
+
+    private OrderSummary _summary;
+    private List<Order> _orders;
+
+    protected override void OnInitialized()
+    {
+        // Always the signed-in user, never a route value.
+        var userName = HttpContext.User.Identity?.Name;
+
+        _summary = OrderService.GetSummary(userName);
+        _orders = OrderService.GetOrdersForUser(userName).ToList();
+    }
+}

@@ -1,0 +1,95 @@
+@page "/Cart"
+@page "/Cart/Index"
+@inject ICartService CartService
+@inject NavigationManager Navigation
+
+<PageTitle>Your Cart - eShopLite</PageTitle>
+
+<header class="page-header">
+    <div>
+        <h1 id="title">Your Cart</h1>
+        @if (!_cart.IsEmpty)
+        {
+            <p class="page-subtitle">@_cart.ItemCount @(_cart.ItemCount == 1 ? "item" : "items") ready for checkout</p>
+        }
+    </div>
+</header>
+
+<StatusMessage />
+
+@if (_cart.IsEmpty)
+{
+    <div class="empty-state">
+        <Icon Name="cart" Size="36" />
+        <p><em>Your cart is empty.</em></p>
+        <a href="Home/Products" class="btn btn-primary">Browse products</a>
+    </div>
+}
+else
+{
+    <div class="row g-4">
+        <div class="col-lg-8">
+            <div class="card">
+                <ul class="list-group list-group-flush cart-lines">
+                    @foreach (var item in _cart.Items)
+                    {
+                        <li class="list-group-item cart-line">
+                            <img src="Images/@item.ImageUrl" alt="@item.Name" class="cart-thumb" />
+                            <div class="cart-line-info">
+                                <a href="@($"Home/Product/{item.ProductId}")" class="fw-semibold">@item.Name</a>
+                                <div class="small text-body-secondary">USD @item.UnitPrice.ToString("N2") each</div>
+                            </div>
+                            <div class="cart-line-qty">
+                                <FormMappingScope Name="@($"line-{item.ProductId}")">
+                                    <CartQuantityForm Item="item" />
+                                </FormMappingScope>
+                            </div>
+                            <div class="cart-line-total text-end fw-semibold">USD @item.LineTotal.ToString("N2")</div>
+                            <form method="post" @formname="@($"remove-{item.ProductId}")" @onsubmit="() => Remove(item.ProductId)" data-enhance class="cart-line-remove">
+                                <AntiforgeryToken />
+                                <button type="submit" class="btn btn-sm btn-outline-danger d-inline-flex align-items-center gap-1" aria-label="@($"Remove {item.Name}")">
+                                    <Icon Name="trash" Size="16" /> <span class="d-none d-md-inline">Remove</span>
+                                </button>
+                            </form>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <aside class="card summary-card">
+                <div class="card-body">
+                    <h2 class="h5">Order summary</h2>
+                    <dl class="summary-list">
+                        <dt>Items</dt>
+                        <dd>@_cart.ItemCount</dd>
+                        <dt class="summary-total">Total</dt>
+                        <dd class="summary-total">USD @_cart.Total.ToString("N2")</dd>
+                    </dl>
+                    <div class="d-grid gap-2">
+                        <a href="Cart/Checkout" class="btn btn-primary btn-lg">Checkout</a>
+                        <a href="Home/Products" class="btn btn-outline-secondary">Continue shopping</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+}
+
+@code {
+    private Cart _cart;
+
+    protected override void OnInitialized()
+    {
+        _cart = CartService.GetCart();
+    }
+
+    private void Remove(int productId)
+    {
+        var cart = CartService.GetCart();
+        cart.Remove(productId);
+        CartService.Save(cart);
+
+        Navigation.NavigateTo("/Cart");
+    }
+}

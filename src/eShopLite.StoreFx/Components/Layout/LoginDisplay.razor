@@ -1,0 +1,21 @@
+<AuthorizeView>
+    <Authorized>
+        <li class="nav-item">
+            <span class="navbar-text greeting me-md-2">Hello, @context.User.Identity?.Name!</span>
+        </li>
+        <li class="nav-item">
+            <NavLink class="nav-link" href="Order">My orders</NavLink>
+        </li>
+        <li class="nav-item">
+            <form method="post" action="Account/Logout" class="d-inline">
+                <AntiforgeryToken />
+                <button type="submit" class="btn btn-link nav-link">Log out</button>
+            </form>
+        </li>
+    </Authorized>
+    <NotAuthorized>
+        <li class="nav-item">
+            <NavLink class="nav-link" href="Account/Login">Log in</NavLink>
+        </li>
+    </NotAuthorized>
+</AuthorizeView>

@@ -1,0 +1,75 @@
+@page "/Cart/Confirmation/{Id:int}"
+@attribute [Authorize]
+@inject IOrderService OrderService
+@inject NavigationManager Navigation
+
+@if (_order != null)
+{
+    <PageTitle>Order Confirmed - eShopLite</PageTitle>
+
+    <div class="confirmation-banner mb-4">
+        <span class="confirmation-icon"><Icon Name="check" Size="28" /></span>
+        <div>
+            <h1 id="title" class="h3 mb-1">Order Confirmed</h1>
+            <p class="mb-0">
+                Thanks, <strong>@HttpContext.User.Identity?.Name</strong> &mdash; order <strong>#@_order.Id</strong> was placed on
+                @_order.PlacedUtc.ToString("yyyy-MM-dd HH:mm") UTC.
+            </p>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="table-responsive">
+            <table class="table align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th class="text-center">Qty</th>
+                        <th class="text-end">Unit price</th>
+                        <th class="text-end">Line total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var line in _order.Lines)
+                    {
+                        <tr>
+                            <td>@line.ProductName</td>
+                            <td class="text-center">@line.Quantity</td>
+                            <td class="text-end">USD @line.UnitPrice.ToString("N2")</td>
+                            <td class="text-end">USD @((line.UnitPrice * line.Quantity).ToString("N2"))</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="3" class="text-end">Total</th>
+                        <th class="text-end">USD @_order.Total.ToString("N2")</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+    <div class="d-flex flex-wrap gap-2">
+        <a href="Home/Products" class="btn btn-primary">Continue shopping</a>
+        <a href="Order" class="btn btn-outline-secondary">My orders</a>
+    </div>
+}
+
+@code {
+    [CascadingParameter]
+    private HttpContext HttpContext { get; set; }
+
+    [Parameter] public int Id { get; set; }
+
+    private Order _order;
+
+    protected override void OnInitialized()
+    {
+        _order = OrderService.GetOrder(Id, HttpContext.User.Identity?.Name);
+        if (_order == null)
+        {
+            Navigation.NotFound();
+        }
+    }
+}

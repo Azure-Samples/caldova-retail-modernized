@@ -1,0 +1,47 @@
+@inject IStoreService StoreService
+@inject ICartService CartService
+@inject IFlashMessages Flash
+@inject NavigationManager Navigation
+
+@* Render inside a FormMappingScope unique to the product, so each card's form posts back to itself. *@
+<form method="post" @formname="add-to-cart" @onsubmit="Add" data-enhance
+      class="add-to-cart d-flex gap-2 align-items-center @(Compact ? "add-to-cart-compact" : "")">
+    <AntiforgeryToken />
+    <label class="visually-hidden" for="@InputId">Quantity for @ProductName</label>
+    <input type="number" id="@InputId" name="Quantity" value="1" min="1" class="form-control qty-input" />
+    <button type="submit" class="btn btn-primary d-inline-flex align-items-center gap-2 flex-grow-1 justify-content-center">
+        <Icon Name="cart" Size="16" />
+        <span>Add to cart</span>
+    </button>
+</form>
+
+@code {
+    [Parameter, EditorRequired] public int ProductId { get; set; }
+    [Parameter] public string ProductName { get; set; }
+    [Parameter] public string ReturnUrl { get; set; }
+    [Parameter] public bool Compact { get; set; }
+
+    [SupplyParameterFromForm] private int? Quantity { get; set; }
+
+    private string InputId => $"qty-{ProductId}";
+
+    private void Add()
+    {
+        var product = StoreService.GetProduct(ProductId);
+        if (product == null)
+        {
+            Navigation.NotFound();
+            return;
+        }
+
+        var quantity = Math.Max(Quantity ?? 1, 1);
+
+        var cart = CartService.GetCart();
+        cart.Add(product, quantity);
+        CartService.Save(cart);
+
+        Flash.Set("success", string.Format("Added {0} \u00d7 \"{1}\" to your cart.", quantity, product.Name));
+
+        Navigation.NavigateTo(LocalUrl.IsLocal(ReturnUrl) ? LocalUrl.OrHome(ReturnUrl) : "/Cart");
+    }
+}

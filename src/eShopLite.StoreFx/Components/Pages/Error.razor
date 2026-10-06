@@ -1,0 +1,28 @@
+@page "/Error"
+@page "/Home/Error"
+@using System.Diagnostics
+
+<PageTitle>Error - eShopLite</PageTitle>
+
+<div class="status-page">
+    <span class="status-icon status-icon-danger"><Icon Name="alert" Size="32" /></span>
+    <h1 id="title">Error.</h1>
+    <p class="lead">An error occurred while processing your request.</p>
+    @if (!string.IsNullOrEmpty(_requestId))
+    {
+        <p class="small text-body-secondary">Request ID: <code>@_requestId</code></p>
+    }
+    <a href="" class="btn btn-primary">Back to home</a>
+</div>
+
+@code {
+    [CascadingParameter]
+    private HttpContext HttpContext { get; set; }
+
+    private string _requestId;
+
+    protected override void OnInitialized()
+    {
+        _requestId = Activity.Current?.Id ?? HttpContext?.TraceIdentifier;
+    }
+}

@@ -1,0 +1,41 @@
+@inherits LayoutComponentBase
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header sticky-top">
+    <nav class="navbar navbar-expand-md navbar-dark" aria-label="Main navigation">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="">
+                <span class="brand-mark" aria-hidden="true"><Icon Name="mountain" Size="18" /></span>
+                <span>eShopLite</span>
+            </a>
+            <button type="button" class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                    aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><NavLink class="nav-link" href="Home/Products">Products</NavLink></li>
+                    <li class="nav-item"><NavLink class="nav-link" href="Home/Stores">Stores</NavLink></li>
+                </ul>
+                <ul class="navbar-nav ms-auto align-items-md-center gap-md-1">
+                    <LoginDisplay />
+                    <li class="nav-item ms-md-2"><CartBadge /></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main id="main" class="site-main">
+    <div class="container">
+        @Body
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="container d-flex flex-column flex-sm-row justify-content-between gap-2">
+        <p class="mb-0">&copy; @DateTime.Now.Year - eShopLite</p>
+        <p class="mb-0 text-body-secondary">Outdoor gear for every trail.</p>
+    </div>
+</footer>

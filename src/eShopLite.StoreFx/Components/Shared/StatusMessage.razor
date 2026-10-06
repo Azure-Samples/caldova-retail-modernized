@@ -1,0 +1,19 @@
+@inject IFlashMessages Flash
+
+@if (_message != null)
+{
+    <div class="alert alert-@(_message.Kind ?? "success") alert-dismissible fade show d-flex align-items-center gap-2 flash" role="status">
+        <Icon Name="@(_message.Kind == "success" ? "check" : "info")" Size="18" />
+        <span>@_message.Text</span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@code {
+    private FlashMessage _message;
+
+    protected override void OnInitialized()
+    {
+        _message = Flash.Take();
+    }
+}
