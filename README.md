@@ -27,7 +27,7 @@ Each Azure integration turns on only when its setting is present; with none set,
 | `APPLICATIONINSIGHTS_CONNECTION_STRING` | Send telemetry to Application Insights |
 | `ASPNETCORE_FORWARDEDHEADERS_ENABLED` | `true` behind Container Apps ingress, so the app sees the original `https` scheme |
 
-Container Apps probes: `/health` (liveness) and `/ready` (readiness). See [.azure/plan.md](.azure/plan.md) for the full readiness plan, and [infra/](infra/README.md) for the Azure infrastructure (Bicep).
+Container Apps probes: `/health` (liveness) and `/ready` (readiness). See [infra/](infra/README.md) for the Azure infrastructure (Bicep).
 
 # 🔑 Demo logins
 
