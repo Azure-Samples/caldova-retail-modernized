@@ -52,10 +52,10 @@ $PSNativeCommandUseErrorActionPreference = $true
 $buildEnvironment = 'lab06'
 $deployEnvironment = 'lab06-deploy'
 $resourceGroupPrefixes = [ordered]@{
-    Bootstrap = 'rg-caldova-lab04-bootstrap-'
-    Primary = 'rg-caldova-lab04-primary-'
-    Secondary = 'rg-caldova-lab04-secondary-'
-    Global = 'rg-caldova-lab04-global-'
+    Bootstrap = 'rg-caldova-lab04-bootstrap'
+    Primary = 'rg-caldova-lab04-primary'
+    Secondary = 'rg-caldova-lab04-secondary'
+    Global = 'rg-caldova-lab04-global'
 }
 $deploymentOutputContracts = @{
     Bootstrap = @(
