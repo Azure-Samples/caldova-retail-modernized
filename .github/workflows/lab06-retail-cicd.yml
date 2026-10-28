@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - src/**
+      - tests/**
       - eShopLiteFx.sln
       - .github/workflows/lab06-retail-cicd.yml
   push:
@@ -11,6 +12,7 @@ on:
       - main
     paths:
       - src/**
+      - tests/**
       - eShopLiteFx.sln
       - .github/workflows/lab06-retail-cicd.yml
   workflow_dispatch:
@@ -48,7 +50,7 @@ jobs:
         run: dotnet build "$SOLUTION" --configuration Release --no-restore
 
       - name: Test
-        run: dotnet test "$SOLUTION" --configuration Release --no-build
+        run: dotnet test "$SOLUTION" --configuration Release --no-build -- RunConfiguration.TreatNoTestsAsError=true
 
       - name: Build container
         run: docker build --file "$DOCKERFILE" --tag caldova-retail:validation "$BUILD_CONTEXT"

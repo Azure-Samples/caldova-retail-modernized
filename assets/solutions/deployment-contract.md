@@ -204,6 +204,22 @@ admin credentials, SQL passwords, or long-lived tokens.
 
 ### Workflow ownership boundary
 
+The solution includes the .NET 10 xUnit project
+`tests/eShopLite.StoreFx.Tests/eShopLite.StoreFx.Tests.csproj`. Its initial
+`WorkflowSmokeTests` test is a passing assertion to verify test discovery and
+execution only; it does not validate application behavior or require Azure or SQL.
+Keep the test project in the solution and commit its sources. Both workflow
+templates include `tests/**` in their pull-request and push path filters.
+
+The validation job restores and builds the solution, then runs:
+
+```powershell
+dotnet test eShopLiteFx.sln --configuration Release --no-build -- RunConfiguration.TreatNoTestsAsError=true
+```
+
+Test failures or zero discovered tests in the test assembly must fail validation.
+Add application-focused tests as the lab evolves.
+
 Pull requests:
 
 - restore, build, and test .NET
