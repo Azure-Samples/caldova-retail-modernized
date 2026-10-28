@@ -78,7 +78,7 @@ but the **user-assigned retail runtime identity** is the identity configured for
 ACR pulls. The same user-assigned identity is selected inside the application
 through `AZURE_CLIENT_ID`.
 
-The optional platform-operator ACR repair described below is an exception: it
+The platform-operator ACR repair performed by default during initialization is an exception: it
 switches ACR pulls to the app's existing system-assigned identity, while keeping
 the user-assigned runtime identity and application `AZURE_CLIENT_ID` unchanged.
 
@@ -140,29 +140,29 @@ probe `/health` through Front Door and separately inspect revision health.
 The repository bootstrap creates two protected GitHub environments and
 publishes non-secret variables from the instructor deployment.
 
-### Optional ACR access repair during initialization
+### Automatic ACR access repair during initialization
 
-Platform operators can opt into ACR repair as the final initialization step:
+Initialization runs ACR repair automatically as its final setup step:
 
 ```powershell
 .\assets\scripts\Initialize-Lab06RepositoryFromResourceGroups.ps1 `
     -SubscriptionId '<subscription-id>' `
     -Repository '<owner/repository>' `
-    -RequiredReviewer '<github-login>' `
-    -RepairAcrAccess
+    -RequiredReviewer '<github-login>'
 ```
 
-Without `-RepairAcrAccess`, initialization behavior is unchanged. With it,
-[the initializer](../scripts/Initialize-Lab06RepositoryFromResourceGroups.ps1)
+[The initializer](../scripts/Initialize-Lab06RepositoryFromResourceGroups.ps1)
 calls [the repair script](../scripts/Repair-Lab06AcrReaderAccess.ps1) with
 `-Apply -Confirm:$false` after verifying both environments' variables and before reporting
 completion. It passes the resolved resource groups and exact selected deployment
 names; the repair reads their Azure deployment outputs, not GitHub variables.
 Both scripts must remain together in the scripts directory.
+The `-RepairAcrAccess` switch is no longer required; existing commands that include
+it still work. Pass `-RepairAcrAccess:$false` to skip the repair.
 
 The repair requires PowerShell 7 or later and an Azure operator authorized to
-create role assignments and update the app's registry configuration. Passing
-`-RepairAcrAccess` automatically approves the repair actions without interactive
+create role assignments and update the app's registry configuration. Initialization
+automatically approves the repair actions without interactive
 confirmation; validation and permission checks still run. Direct repair-script
 invocations retain their confirmation prompts unless `-Confirm:$false` is passed.
 It adds missing registry-scoped Reader

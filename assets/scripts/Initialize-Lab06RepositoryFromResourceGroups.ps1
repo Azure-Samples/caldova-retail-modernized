@@ -44,7 +44,7 @@ param(
     [ValidateNotNullOrEmpty()]
     [string]$DeploymentBranch = 'main',
 
-    [switch]$RepairAcrAccess
+    [switch]$RepairAcrAccess = $true
 )
 
 Set-StrictMode -Version Latest
