@@ -42,7 +42,9 @@ param(
     [switch]$AllowDeploymentWithoutRequiredReviewer,
 
     [ValidateNotNullOrEmpty()]
-    [string]$DeploymentBranch = 'main'
+    [string]$DeploymentBranch = 'main',
+
+    [switch]$RepairAcrAccess
 )
 
 Set-StrictMode -Version Latest
@@ -763,6 +765,22 @@ Set-AndVerifyVariables `
 Set-AndVerifyVariables `
     -EnvironmentName $deployEnvironment `
     -Variables $deployVariables
+
+if ($RepairAcrAccess) {
+    $repairParameters = @{
+        SubscriptionId = $SubscriptionId
+        BootstrapResourceGroup = $BootstrapResourceGroup
+        PrimaryResourceGroup = $PrimaryResourceGroup
+        SecondaryResourceGroup = $SecondaryResourceGroup
+        BootstrapDeploymentName = $bootstrapDeployment.name
+        PrimaryDeploymentName = $primaryDeployment.name
+        SecondaryDeploymentName = $secondaryDeployment.name
+        Apply = $true
+        Confirm = $false
+    }
+
+    & "$PSScriptRoot\Repair-Lab06AcrReaderAccess.ps1" @repairParameters
+}
 
 Write-Host ''
 Write-Host 'Lab 06 GitHub OIDC bootstrap completed.'

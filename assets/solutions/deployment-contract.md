@@ -78,6 +78,10 @@ but the **user-assigned retail runtime identity** is the identity configured for
 ACR pulls. The same user-assigned identity is selected inside the application
 through `AZURE_CLIENT_ID`.
 
+The optional platform-operator ACR repair described below is an exception: it
+switches ACR pulls to the app's existing system-assigned identity, while keeping
+the user-assigned runtime identity and application `AZURE_CLIENT_ID` unchanged.
+
 Lab 6 must not recreate the Container App, managed environment, registry,
 network, Front Door profile, identities, role assignments, secrets, replica
 limits, or scaling rules.
@@ -135,6 +139,42 @@ probe `/health` through Front Door and separately inspect revision health.
 
 The repository bootstrap creates two protected GitHub environments and
 publishes non-secret variables from the instructor deployment.
+
+### Optional ACR access repair during initialization
+
+Platform operators can opt into ACR repair as the final initialization step:
+
+```powershell
+.\assets\scripts\Initialize-Lab06RepositoryFromResourceGroups.ps1 `
+    -SubscriptionId '<subscription-id>' `
+    -Repository '<owner/repository>' `
+    -RequiredReviewer '<github-login>' `
+    -RepairAcrAccess
+```
+
+Without `-RepairAcrAccess`, initialization behavior is unchanged. With it,
+[the initializer](../scripts/Initialize-Lab06RepositoryFromResourceGroups.ps1)
+calls [the repair script](../scripts/Repair-Lab06AcrReaderAccess.ps1) with
+`-Apply -Confirm:$false` after verifying both environments' variables and before reporting
+completion. It passes the resolved resource groups and exact selected deployment
+names; the repair reads their Azure deployment outputs, not GitHub variables.
+Both scripts must remain together in the scripts directory.
+
+The repair requires PowerShell 7 or later and an Azure operator authorized to
+create role assignments and update the app's registry configuration. Passing
+`-RepairAcrAccess` automatically approves the repair actions without interactive
+confirmation; validation and permission checks still run. Direct repair-script
+invocations retain their confirmation prompts unless `-Confirm:$false` is passed.
+It adds missing registry-scoped Reader
+access for the build and deployment identities, grants missing `AcrPull` to the
+app's existing system identity, and switches the matching registry entry to that
+identity. It does not release an image or change application authentication.
+A repair failure stops initialization before the completion message; earlier
+successful setup changes are retained. Allow RBAC propagation and rerun as needed.
+
+For Reader-only repair or a preview, run the repair script separately using the
+same resource groups and deployment names, with `-RepairSystemIdentityPull:$false`
+and either `-Apply` or no `-Apply`, respectively.
 
 ### Environments and identities
 
